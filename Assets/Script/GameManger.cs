@@ -15,9 +15,10 @@ public class GameManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player_weapon.Handgun == true)
+        if(player_weapon.Handgunmod)
         {
-            mod.color = Color.green;
+            mod.color = Color.blue;
+            Debug.Log("2");
         }
         if (player_weapon.ShotGun == true)
         {

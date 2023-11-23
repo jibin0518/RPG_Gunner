@@ -1,16 +1,20 @@
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
     Animator anim;
+    public Image mod;
 
     private bool HandGunAim;
     public int HandAImCnt = 0;
+    private bool handAiming=false;
 
-    public bool Handgun;
+    public bool Handgunmod;
     public bool Rifle;
     public bool ShotGun;
 
@@ -24,68 +28,48 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         HandAImCnt = HandAImCnt  % 2;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Handgunmod = true;
+            Debug.Log("1");
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetTrigger("HandSkill");
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Handgun = true;
-            Rifle = false;
-            anim.SetBool("ShotGunmod", false);
-            ShotGun = false;
-            anim.SetBool("Riflemod", false);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ShotGun = true;
-            anim.SetBool("ShotGunmod", true);
-            Handgun = false;
-            anim.SetBool("Handmod", false);
-            Rifle = false;
-            anim.SetBool("Riflemod", false);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Rifle = true;
-            anim.SetBool("Riflemod", true);
-            Handgun = false;
-            anim.SetBool("Handmod", false);
-            ShotGun = false;
-            anim.SetBool("ShotGunmod", false);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
             Rifle = false;
             anim.SetBool("Riflemod", false);
-            Handgun = false;
+            Handgunmod = false;
             anim.SetBool("Handmod", false);
             ShotGun = false;
             anim.SetBool("ShotGunmod", false);
-        }
-
-        if (Input.GetMouseButtonUp(1) && Handgun)
-        {
-            anim.SetBool("HandGunAim", false);
-            HandGunAim = true;
-        }
-
-        if (Input.GetMouseButtonDown(1) && Handgun)
-        {
-            anim.SetBool("HandGunAim",true);
-            HandGunAim = true;
         }
         if (Input.GetMouseButtonDown(0) && HandGunAim)
         {
             anim.SetTrigger("Fire");
         }
 
-        if (inputsystem.aim)
-        {
+        Aiming();
+    }
 
+    void Aiming()
+    {
+        if (inputsystem.aim && Handgunmod && !handAiming)
+        {
+            anim.SetBool("HandGunAim", true);
+            HandGunAim = true;
+            handAiming = true;
+        }
+        if (inputsystem.aim && Handgunmod && handAiming)
+        {
+            anim.SetBool("HandGunAim", false);
+            HandGunAim = false;
+            handAiming = false;
         }
     }
 }
