@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     Animator anim;
-    public Image mod;
 
     private bool HandGunAim;
     public int HandAImCnt = 0;

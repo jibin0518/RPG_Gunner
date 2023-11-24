@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class GameManger : MonoBehaviour
 {
-    public Image mod;
+    public Image mod_up;
+    public Image mod_Down;
+    public Image mod_Right;
+    public Image mod_Left;
     public Weapon player_weapon;
     void Start()
     {
@@ -17,16 +20,25 @@ public class GameManger : MonoBehaviour
     {
         if(player_weapon.Handgunmod)
         {
-            mod.color = Color.blue;
+            mod_up.color = Color.blue;
+            mod_Down.color = Color.blue;
+            mod_Left.color = Color.blue;
+            mod_Right.color = Color.blue;
             Debug.Log("2");
         }
         if (player_weapon.ShotGun == true)
         {
-            mod.color = Color.red;
+            mod_up.color = Color.blue;
+            mod_Down.color = Color.blue;
+            mod_Left.color = Color.blue;
+            mod_Right.color = Color.blue;
         }
         if (player_weapon.Rifle == true)
         {
-            mod.color = Color.blue;
+            mod_up.color = Color.blue;
+            mod_Down.color = Color.blue;
+            mod_Left.color = Color.blue;
+            mod_Right.color = Color.blue;
         }
     }
 }
