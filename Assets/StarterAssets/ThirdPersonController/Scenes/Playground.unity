@@ -786,10 +786,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d07695314b204c4bb5e87fe17fe10eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mod_up: {fileID: 0}
-  mod_Down: {fileID: 0}
-  mod_Right: {fileID: 0}
-  mod_Left: {fileID: 0}
+  mod_up: {fileID: 733552707}
+  mod_Down: {fileID: 1409432282}
+  mod_Right: {fileID: 1701120419}
+  mod_Left: {fileID: 228865233}
   player_weapon: {fileID: 1954708788}
 --- !u!4 &1011334475
 Transform:

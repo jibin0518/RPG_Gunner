@@ -26,14 +26,14 @@ public class GameManger : MonoBehaviour
             mod_Right.color = Color.blue;
             Debug.Log("2");
         }
-        if (player_weapon.ShotGun == true)
+        if (player_weapon.ShotGun)
         {
             mod_up.color = Color.blue;
             mod_Down.color = Color.blue;
             mod_Left.color = Color.blue;
             mod_Right.color = Color.blue;
         }
-        if (player_weapon.Rifle == true)
+        if (player_weapon.Rifle)
         {
             mod_up.color = Color.blue;
             mod_Down.color = Color.blue;
